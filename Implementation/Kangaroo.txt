@@ -1,0 +1,37 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+
+char* kangaroo(long int x1,long int v1,long int x2,long int v2) {
+    // Complete this function
+    int i=0;
+    if(v2>v1 && x2>x1)
+        return "NO";
+    
+    while(i<2500)
+    {
+        x1+=v1;
+        x2+=v2;
+        i++;
+        if(x1==x2)
+            return "YES";
+    }
+    return "NO";
+}
+
+int main() {
+    long int x1; 
+    long int v1; 
+    long int x2; 
+    long int v2; 
+    scanf("%ld %ld %ld %ld", &x1, &v1, &x2, &v2);
+    int result_size;
+    char* result = kangaroo(x1, v1, x2, v2);
+    printf("%s\n", result);
+    return 0;
+}
+
