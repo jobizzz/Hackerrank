@@ -1,0 +1,37 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+
+char* solve(int year){
+    // Complete this function
+    if(year<1918){
+        if(year%4==0)
+         printf("12.09.%d",year);
+        else
+           printf("13.09.%d",year); 
+    }
+    else if(year==1918)
+        printf("26.09.%d",year);
+    else if(year%400==0){
+        printf("12.09.%d",year);    
+    }
+    else if(year%4==0 && year%100!=0)
+        printf("12.09.%d",year);
+    else
+        printf("13.09.%d",year);
+    return 0;
+}
+
+int main() {
+    int year; 
+    scanf("%d", &year);
+    int result_size;
+    char* result = solve(year);
+   // printf("%s\n", result);
+    return 0;
+}
+
