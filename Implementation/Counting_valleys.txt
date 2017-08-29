@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    long int n,i,count=0;
+    int c=0;
+ 
+    scanf("%ld",&n);
+    
+   char a[1000000];
+    scanf("%s",a);
+    for(i=0;i<n;i++){
+        if(a[i]=='U')
+            count++;
+        else
+            count--;
+        if(count<0 && c%2==0)
+            c++;
+        else if(count==0 && c%2!=0)
+            c++;
+    }
+    printf("%d",c/2);
+    return 0;
+}
+

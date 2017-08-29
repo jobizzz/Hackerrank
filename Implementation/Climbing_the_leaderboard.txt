@@ -1,0 +1,51 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+
+int main(){
+    int n,i,rank; 
+    scanf("%d",&n);
+    long int *scores = malloc(sizeof(long int) * n);
+    for(int scores_i = 0; scores_i < n; scores_i++){
+       scanf("%ld",&scores[scores_i]);
+        if(scores[scores_i]==scores[scores_i-1]){
+            scores_i--;
+            n--;
+        }
+    }
+    int m; 
+    scanf("%d",&m);
+    long int *alice = malloc(sizeof(long int) * m);
+    for(int alice_i = 0; alice_i < m; alice_i++){
+       scanf("%ld",&alice[alice_i]);
+    }
+    rank=n+1;
+    int z=n-1;
+
+    
+    for(int alice_i = 0; alice_i < m; alice_i++){
+        
+        for(i=z;i>=0;i--){
+            
+            if(*(alice+alice_i)<*(scores+i) || rank==1){
+
+                z=i;
+                break;
+            }
+            
+            else
+                rank--;
+        }
+        printf("%d\n",rank);
+            if(n==1)
+                rank++;
+    }
+    // your code goes here
+    
+    return 0;
+}
+
