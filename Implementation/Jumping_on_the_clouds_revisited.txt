@@ -1,0 +1,23 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+
+int main(){
+    int n; 
+    int k,cost=0; 
+    scanf("%d %d",&n,&k);
+    int *c = malloc(sizeof(int) * n);
+    for(int c_i = 0; c_i < n; c_i++){
+       scanf("%d",&c[c_i]);
+        if(c_i%k==0 && c[c_i]==1)
+            cost+=-2;
+    }
+    cost+=-(n/k);
+    printf("%d",100+cost);
+    return 0;
+}
+

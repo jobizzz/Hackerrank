@@ -1,0 +1,35 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+
+int saveThePrisoner(long int n, long int m,long  int s){
+    // Complete this function
+    s=s+m-1;
+    if(s>n){
+        s=s%n;
+        //s=s-n;
+    }
+    if(s==0)
+        s=n;
+    
+    return s;
+}
+
+int main() {
+    int t; 
+    scanf("%d", &t);
+    for(int a0 = 0; a0 < t; a0++){
+        long int n; 
+        long int m; 
+        long int s; 
+        scanf("%ld %ld %ld", &n, &m, &s);
+        long int result = saveThePrisoner(n, m, s);
+        printf("%ld\n", result);
+    }
+    return 0;
+}
+

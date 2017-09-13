@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */  
+    int i,j,k,z,rev,count=0,temp,out;
+    scanf("%d%d%d",&i,&j,&k);
+    for(z=i;z<=j;z++){
+        rev=0;
+        temp=z;
+        while(temp>0){
+            rev=rev*10+temp%10;
+            temp/=10;
+        }
+        out=abs(z-rev)%k;
+        if(out==0)
+            count++;
+    }
+    printf("%d ",count);
+    return 0;
+}
+

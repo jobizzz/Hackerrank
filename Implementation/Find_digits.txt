@@ -1,0 +1,30 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+
+int main(){
+    int t; 
+    scanf("%d",&t);
+    int n,temp,count=0,rem=0;
+    for(int a0 = 0; a0 < t; a0++){
+        scanf("%d",&n);
+        temp=n;
+        count=0;
+        while(temp>0){
+            rem=temp%10;
+            temp/=10;
+            //printf("%d ",rem);
+           if(rem!=0){
+               if(n%rem==0)
+                count++;
+           }
+        }
+        printf("%d\n",count);
+    }
+    return 0;
+}
+
