@@ -1,0 +1,39 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+
+int main(){
+    int n,i,j,cut,z,temp; 
+    scanf("%d",&n);
+    int arr[n],a[1001]={0};
+    for(int arr_i = 0; arr_i < n; arr_i++){
+       scanf("%d",&arr[arr_i]);
+    }
+    for(i=0;i<n-1;i++){
+        for(j=i+1;j<n;j++){
+            if(arr[i]>arr[j]){
+                temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+            }
+        }
+    }
+    j=0;
+    
+    while(j<n){
+            z=j;
+        cut=arr[z];
+        for(i=j;i<n;i++){
+            arr[i]-=cut;
+            if(arr[i]==0 )
+                j=i+1;
+        }
+        printf("%d\n",n-z);
+    }
+    return 0;
+}
+
