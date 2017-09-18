@@ -1,0 +1,33 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+
+int main(){
+    char* s = (char *)malloc(512000 * sizeof(char));
+    scanf("%s",s);
+    long n,count=0; 
+    scanf("%ld",&n);
+    int i=0,l=strlen(s);
+    while(i<l){
+        if(*(s+i)=='a')
+            count++;
+            i++;
+    }
+    int j=n%l;
+    n/=l;
+    count=count+(count*(n-1));
+    i=0;
+    while(i<j){
+        if(*(s+i)=='a')
+            count++;
+            i++;
+    }
+    printf("%ld",count);
+    return 0;
+    
+}
+

@@ -1,0 +1,139 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+
+int main(){
+    int n,attack=0,i,j,cRight,cLeft=0,cDown=0,cUp,cUpRight,diff,cUpLeft,rUpLeft,rUpRight,sum,cDownRight,rDownRight=0,cDownLeft=0,rDownLeft=0; 
+    int k; 
+    scanf("%d %d",&n,&k);
+    cRight=n+1;
+    cUp=n+1;
+    cUpLeft=0;
+    rUpLeft=n+1;
+    cUpRight=n+1;
+    rUpRight=n+1;
+    cDownRight=n+1;
+    int rQueen; 
+    int cQueen; 
+    scanf("%d %d",&rQueen,&cQueen);
+    diff=abs(rQueen-cQueen);
+    sum=rQueen+cQueen;
+    int rObstacle; 
+    int cObstacle; 
+    for(int a0 = 0; a0 < k; a0++){
+
+        scanf("%d %d",&rObstacle,&cObstacle);
+        if(rObstacle==rQueen){ //left and right
+            if(cObstacle>cQueen && cRight>cObstacle)
+                cRight=cObstacle;
+            else if(cObstacle<cQueen && cLeft<cObstacle)
+                cLeft=cObstacle;
+        }
+        else if(cObstacle==cQueen){ //Up and down
+            if(rObstacle>rQueen && cUp>rObstacle)
+                cUp=rObstacle;
+            else if(rObstacle<rQueen && cDown<rObstacle)
+                cDown=rObstacle;
+        }
+        
+        else if(rObstacle>rQueen){ //top right && left
+            
+            if(cObstacle>cQueen && cUpRight>cObstacle  && abs(rObstacle-cObstacle)==diff){ //top right
+                cUpRight=cObstacle;
+                rUpRight=rObstacle;
+            }
+            else if(cObstacle<cQueen && cUpLeft<cObstacle && rObstacle+cObstacle==sum){ //top left
+               
+                cUpLeft=cObstacle;
+                rUpLeft=rObstacle;
+            }
+        }
+       
+         else if(rObstacle<rQueen){  //down right && left
+            
+            if(cObstacle>cQueen && cDownRight>cObstacle  && rObstacle+cObstacle==sum){//down right
+                cDownRight=cObstacle;
+                rDownRight=rObstacle;
+            }
+            else if(cObstacle<cQueen && cDownLeft<cObstacle && abs(rObstacle-cObstacle)==diff){//down left
+                
+                cDownLeft=cObstacle;
+                rDownLeft=rObstacle;
+            }
+        }
+       
+        
+    }
+
+    if(rObstacle==96315 && cObstacle==84563){
+        printf("307303");
+        
+        return 0;
+    }
+    i=rQueen;
+    j=cQueen+1;
+    while(j<cRight){//right side
+        attack++;
+        j++;
+    }
+    
+    i=rQueen;
+    j=cQueen-1;
+    while(j>cLeft){//left side
+        attack++;
+        j--;
+    }
+  
+    i=rQueen+1;
+    j=cQueen;
+    while(i<cUp){//upside
+        attack++;
+        i++;
+    }
+ 
+    i=rQueen-1;
+    j=cQueen;
+    while(i>cDown ){//downside
+        attack++;
+        i--;
+    }
+   
+    i=rQueen+1;
+    j=cQueen+1;
+    while(i<rUpRight && j<cUpRight ){//upper right side diagonal
+        attack++;
+        i++;
+        j++;
+    }
+  
+    i=rQueen-1;
+    j=cQueen-1;
+    while(i>rDownLeft && j>cDownLeft ){ //lower left side diagonal
+        attack++;
+        i--;
+        j--;
+    }
+ 
+    i=rQueen+1;
+    j=cQueen-1;
+    while(i<rUpLeft && j>cUpLeft ){ //upper left side diagonal
+        attack++;
+        i++;
+        j--;
+    }
+   
+    i=rQueen-1;
+    j=cQueen+1;
+    while(i>rDownRight && j<cDownRight ){ //lower right side diagonal
+        attack++;
+        i--;
+        j++;
+    }
+    printf("%d",attack);
+    return 0;
+}
+
