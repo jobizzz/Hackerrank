@@ -1,0 +1,27 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+
+int main(){
+    int n; 
+    float pc=0,zc=0;
+    scanf("%d",&n);
+    int arr[n];
+    for(int arr_i = 0; arr_i < n; arr_i++){
+       scanf("%d",&arr[arr_i]);
+        if(arr[arr_i]>0)
+            pc++;
+        else if(arr[arr_i]==0)
+            zc++;
+    }
+    
+    printf("%0.6f\n",pc/n);
+    printf("%0.6f\n",(n-(pc+zc))/n);
+    printf("%0.6f\n",zc/n);
+    return 0;
+}
+

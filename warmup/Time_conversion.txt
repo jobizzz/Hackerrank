@@ -1,0 +1,43 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+
+char* timeConversion(char* s) {
+   int a;
+  //  printf("%d",p);
+    if(s[8]=='P'){
+        a=(s[0]-'0')*10+s[1]-'0'+12;
+        if(a==24)
+            printf("12");
+        else
+            printf("%d",a);
+    }
+    else if(s[8]=='A'){
+        a=(s[0]-'0')*10+s[1]-'0'+12;
+        if(a==24)
+            printf("00");
+        else
+            
+        printf("%c%c",s[0],s[1]);
+   
+        
+    }
+    
+   for(int i=2;i<8;i++)
+       printf("%c",s[i]);
+    return 0;
+}
+
+int main() {
+    char* s = (char *)malloc(512000 * sizeof(char));
+    scanf("%s", s);
+        int result_size;
+char* result = timeConversion(s);
+   // printf("%s\n", result);
+    return 0;
+}
+
